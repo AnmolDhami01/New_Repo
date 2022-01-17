@@ -31,10 +31,17 @@ export default function Navbar() {
               <Hidden smDown>
                 <HoverLinks
                   heading={"Categories"}
-                  text="DERMA FRANCHISE"
-                  text1="HOMOPATHIC FRANCHISE"
-                  text2="ALLOPATHIC FRANCHISES"
-                  text3="AYURVEDIC FRANCHISE"
+                  text="PCD Pharma FRANCHISE"
+                  text1="Third Party Manufacturing"
+                  text2="Cosmetics Derma FRANCHISES"
+                  text3="Ayurvedic PCD FRANCHISE"
+                  text4="Cardiac Diabetic Manufacturing"
+                  text5="Allopathic Drug Manufacturing"
+                  text6="Ent Medicine Manufacturing"
+                  text7="Ayurvedic Herbal Manufacturing"
+                  text8="Pediatric Range Franchise"
+                  text9="Critical Care  Franchise"
+                  text10="Medicine Manufacturing Companies"
                 />
               </Hidden>
               <input type="search" placeholder="Search here" />

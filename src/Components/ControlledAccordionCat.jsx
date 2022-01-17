@@ -14,6 +14,7 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   links: {
     display: "flex",
@@ -98,66 +99,66 @@ export default function ControlledAccordionCat(props) {
         </AccordionSummary>
         <AccordionDetails>
           <div className={classes.links}>
-            <a href="#">
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               PCD Pharma Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Third Party Manufacturing
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Cosematic Derma Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Allopathic Drug Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Ayurvedic PCD Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Cardiac Daibatic Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Pediatric Range Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               ENT Medicine Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Pharma Business
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Pediatric Range
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Medicine Manufacturing
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Ayurvedic Herbal
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Critical Care
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Allopathic Drug Franchise
-            </a>
-            <a href="#">
+            </Link>
+            <Link to="/testing">
               <HealthAndSafetyIcon />
               Ayurvedic PCD Franchise
-            </a>
+            </Link>
             <Box textAlign="center">
               <center>
                 {" "}

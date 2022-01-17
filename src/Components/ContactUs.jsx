@@ -90,7 +90,6 @@ export default function ContactUs2() {
                     fullWidth
                     id="Name"
                     label="Full Name"
-                    autoFocus
                   />
                 </Grid>
 

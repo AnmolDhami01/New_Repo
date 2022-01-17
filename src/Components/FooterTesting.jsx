@@ -195,7 +195,7 @@ export default function FooterTesting(props) {
             align="center"
           >
             {"Copyright © "}
-            <Link style={{ color: "white" }} to="http://tru-web.in/">
+            <Link style={{ color: "white" }} to="/">
               PharmaWeb
             </Link>{" "}
             {new Date().getFullYear()}

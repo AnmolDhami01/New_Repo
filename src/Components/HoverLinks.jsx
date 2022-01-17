@@ -31,6 +31,13 @@ export default function HoverLinks(props) {
               text1={props.text1}
               text2={props.text2}
               text3={props.text3}
+              text4={props.text4}
+              text5={props.text5}
+              text6={props.text6}
+              text7={props.text7}
+              text8={props.text8}
+              text9={props.text9}
+              text10={props.text10}
             />
           </React.Fragment>
         }
