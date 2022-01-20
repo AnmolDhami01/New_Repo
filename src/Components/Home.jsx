@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Hidden } from "@mui/material";
 import React from "react";
 import Caursal from "./Caursal";
 import ChooseUs from "./ChooseUs";
@@ -20,6 +20,8 @@ import ContactUs from "./ContactUs";
 import GoalsValues from "./GoalsValues";
 import HowWorks from "./HowWorks";
 import CaursalSmallThird from "./CaursalSmallThird";
+import CaursalSmallDerma from "./CaursalSmallDerma";
+import ComapnyCarousel from "./ComapnyCarousel";
 
 export default function Home() {
   return (
@@ -58,11 +60,19 @@ export default function Home() {
           image2={Contract}
           image3={HandWash}
         />
-        <CaursalSmall />
+        <CaursalSmallDerma />
 
         <HappyCilents />
         <ContactUs />
         <GoalsValues />
+
+        <Hidden smDown>
+          <ComapnyCarousel count={5} />
+        </Hidden>
+
+        <Hidden smUp>
+          <ComapnyCarousel count={1} />
+        </Hidden>
       </Container>
     </>
   );

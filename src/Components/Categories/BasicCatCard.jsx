@@ -8,6 +8,7 @@ import NexbonLifesciences from "../../static/NexbonLifesciences.png";
 import CallIcon from "@mui/icons-material/Call";
 import BungalowIcon from "@mui/icons-material/Bungalow";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
+import MaxWidthContact from "./MaxWidthContact";
 export default function BasicCatCard(props) {
   return (
     <Card sx={{ maxWidth: 445 }}>
@@ -27,7 +28,7 @@ export default function BasicCatCard(props) {
             sx={{ color: "black" }}
             startIcon={<AddLocationIcon />}
           >
-            Panchkula
+            {props.location}
           </Button>
           <Typography variant="subtitle2" color="text.secondary">
             {props.body}
@@ -35,14 +36,7 @@ export default function BasicCatCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button
-          size="small"
-          variant="contained"
-          sx={{ backgroundColor: "#0c8540" }}
-          startIcon={<CallIcon />}
-        >
-          Contact
-        </Button>
+        <MaxWidthContact />
         <Button
           size="small"
           variant="contained"

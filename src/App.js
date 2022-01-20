@@ -13,6 +13,7 @@ import ContactUs2 from "./Components/ContactUs";
 import { Container } from "@mui/material";
 import SiginTesting from "./Components/SiginTesting";
 import BasicCat from "./Components/Categories/BasicCat";
+import Nexbon from "./Components/Companies/Nexbon";
 
 let theme = createTheme({
   palette: {
@@ -33,25 +34,31 @@ theme = createTheme(theme, {
   },
 });
 
-function App() {
+export default function App() {
   return (
     <>
-      <Topbar />
-      <Navbar />
-      <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
+      <>
+        <Topbar />
+        <Navbar />
+        <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
 
-          <Route path="/contactus" element={<ContactUs2 />}></Route>
+            <Route path="/contactus" element={<ContactUs2 />}></Route>
 
-          <Route path="/testing" element={<BasicCat />}></Route>
+            <Route path="/testing" element={<BasicCat />}></Route>
 
-          <Route path="*" element={<ErrorPage />}></Route>
-        </Routes>
-      </Container>
-      <FooterTesting />
+            <Route path="/company/Nexbon" element={<Nexbon />}></Route>
+            <Route path="*" element={<ErrorPage />}></Route>
+          </Routes>
+        </Container>
+        <FooterTesting />
+      </>
+      <>
+        <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+          <Routes></Routes>
+        </Container>
+      </>
     </>
   );
 }
-
-export default App;

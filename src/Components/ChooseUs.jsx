@@ -19,25 +19,25 @@ export default function ChooseUs() {
           <Grid container item xs={12} md={8} lg={8} spacing={2}>
             <Grid item xs={12} md={4} lg={4}>
               <ChooseCard
-                heading={"Why Choose Pharma Web"}
+                heading={"Pharma Web"}
                 body={
-                  "Well we work on a model to provide you genuine buyers and sellers of the pharmaceutical industry. We have listed several categories in the portal which the buyer can choose accordingly and the seller can get the relevant lead. From the Buyers point of view, "
+                  "Well we work on a model to provide you genuine buyers and sellers of the pharmaceutical industry. We have listed several categories in the portal which the buyer , we have listed the top-rated pharmaceutical companies, we have listed the top-rated pharmaceutical companies,"
                 }
               />
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <ChooseCard
-                heading={"Why Choose Pharma Web"}
+                heading={"Pharma Web"}
                 body={
-                  "Well we work on a model to provide you genuine buyers and sellers of the pharmaceutical industry. We have listed several categories in the portal which the buyer can choose accordingly and the seller can get the relevant lead. From the Buyers point of view, "
+                  "Well we work on a model to provide you genuine buyers and sellers of the pharmaceutical industry. We have listed several categories in the portal which the buyer ,we have listed the top-rated pharmaceutical companies, we have listed the top-rated pharmaceutical companies, "
                 }
               />
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <ChooseCard
-                heading={"Why Choose Pharma Web"}
+                heading={"Pharma Web"}
                 body={
-                  "Well we work on a model to provide you genuine buyers and sellers of the pharmaceutical industry. We have listed several categories in the portal which the buyer can choose accordingly and the seller can get the relevant lead. From the Buyers point of view, "
+                  "Well we work on a model to provide you genuine buyers and sellers of the pharmaceutical industry. We have listed several categories in the portal which the buyer ,we have listed the top-rated pharmaceutical companies, we have listed the top-rated pharmaceutical companies, "
                 }
               />
             </Grid>

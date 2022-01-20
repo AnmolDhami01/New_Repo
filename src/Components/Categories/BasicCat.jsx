@@ -12,10 +12,10 @@ import {
   FormGroup,
   Checkbox,
   TextField,
+  CardMedia,
 } from "@mui/material";
 import BasicCatCard from "./BasicCatCard";
 import FormControl from "@mui/material/FormControl";
-import FormGroupFile from "./FormGroup";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import { makeStyles } from "@mui/styles";
@@ -27,6 +27,8 @@ import JMLOGO from "../../static/JMLOGO.png";
 import STAVIC from "../../static/STAVIC.png";
 import SYNAK from "../../static/SYNAK.png";
 
+import GLOMPY_LOGO from "../../static/GLOMPY_LOGO.jpg";
+import CMPNY from "../../static/CMPNY.jpeg";
 const useStyles = makeStyles({
   links: {
     display: "flex",
@@ -202,10 +204,11 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={NexbonLifesciences}
+                  location={"Panchkula"}
                   sxCard={{
                     width: "228px",
                     height: "56px",
-                    marginTop: "24px",
+                    // marginTop: "24px",
                     marginLeft: "2px",
                   }}
                 />
@@ -218,6 +221,7 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={JMLOGO}
+                  location={"Chandigarh"}
                   sxCard={{
                     maxWidth: "78px",
                     marginLeft: "65px",
@@ -232,6 +236,7 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={ACCUMIN}
+                  location={"Chandigarh"}
                   sxCard={{
                     width: "228px",
                     height: "77px",
@@ -248,6 +253,7 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={STAVIC}
+                  location={"Panchkula"}
                   sxCard={{
                     height: "71px",
                     marginTop: "12px",
@@ -264,6 +270,7 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={SYNAK}
+                  location={"Panchkula"}
                   sxCard={{
                     width: "116px",
 
@@ -279,6 +286,7 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={ELKOS}
+                  location={"Panchkula"}
                   sxCard={{
                     width: "134px",
 
@@ -299,6 +307,7 @@ export default function BasicCat() {
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
                   image={NexbonLifesciences}
+                  location={"Panchkula"}
                   sxCard={{
                     width: "228px",
                     height: "56px",
@@ -310,16 +319,17 @@ export default function BasicCat() {
 
               <Grid item lg={4} md={3}>
                 <BasicCatCard
-                  name={"NexBon LifeSciences"}
+                  name={"Glomphy Biotech"}
                   body={
                     "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
                   }
-                  image={NexbonLifesciences}
+                  image={GLOMPY_LOGO}
+                  location={"Chandigarh"}
                   sxCard={{
-                    width: "228px",
-                    height: "56px",
-                    marginTop: "24px",
-                    marginLeft: "2px",
+                    width: "190px",
+                    height: "97px",
+                    marginTop: "14px",
+                    marginLeft: "18px",
                   }}
                 />
               </Grid>
@@ -446,15 +456,28 @@ export default function BasicCat() {
                 </Grid>
               </Grid>
             </Card>
+            <Grid sx={{ pt: 2 }} item lg={12}>
+              <CardMedia
+                component="img"
+                alt="Photos"
+                // height="288"
+                image={CMPNY}
+                // style={props.style}
+              />
+            </Grid>
           </Grid>
         </Grid>
-        <Box component={Paper} sx={{ my: 5, pl: 2 }}>
+        <Box
+          component={Paper}
+          sx={{ my: 5, pl: 2 }}
+          style={{ padding: "40px" }}
+        >
           <Typography
             variant="h4"
             align="center"
             color="text.secondary"
             paragraph
-            style={{ color: "#0c8540" }}
+            style={{ color: "#0c8540", fontWeight: "800" }}
             fontFamily="Poppins"
           >
             PCD Pharma Franchise | Top PCD Pharma Companies in India Price List

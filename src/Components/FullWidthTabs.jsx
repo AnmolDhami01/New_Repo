@@ -92,10 +92,11 @@ export default function FullWidthTabs() {
             <br /> List Item #1
             <br /> List Item #1 <br />
             List Item #1
-            <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <br /> The main purpose of PharmaWeb.com is to bring together entire
+            Pharma Industry at one place and provide a platform to importers,
+            exporters, manufacturers, traders, services providers, distributors,
+            wholesalers and governmental agencies to find trade opportunities
+            and promote their products and services online
           </Typography>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
@@ -105,10 +106,11 @@ export default function FullWidthTabs() {
             <br /> List Item #1
             <br /> List Item #1 <br />
             List Item #1
-            <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <br /> The main purpose of PharmaWeb.com is to bring together entire
+            Pharma Industry at one place and provide a platform to importers,
+            exporters, manufacturers, traders, services providers, distributors,
+            wholesalers and governmental agencies to find trade opportunities
+            and promote their products and services online
           </Typography>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
@@ -118,10 +120,11 @@ export default function FullWidthTabs() {
             <br /> List Item #1
             <br /> List Item #1 <br />
             List Item #1
-            <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <br /> The main purpose of PharmaWeb.com is to bring together entire
+            Pharma Industry at one place and provide a platform to importers,
+            exporters, manufacturers, traders, services providers, distributors,
+            wholesalers and governmental agencies to find trade opportunities
+            and promote their products and services online
           </Typography>
         </TabPanel>
       </SwipeableViews>
