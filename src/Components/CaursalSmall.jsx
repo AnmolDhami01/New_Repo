@@ -15,15 +15,9 @@ import { Container } from "@mui/material";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
-  {
-    imgPath: `${SMALLBANNER1}`,
-  },
-  {
-    imgPath: `${SMALLBANNER2}`,
-  },
-  {
-    imgPath: `${SMALLBANNER3}`,
-  },
+  { label: "1", imgPath: `${SMALLBANNER1}` },
+  { label: "2", imgPath: `${SMALLBANNER2}` },
+  { label: "3", imgPath: `${SMALLBANNER3}` },
 ];
 
 function CaursalSmall() {
@@ -41,7 +35,6 @@ function CaursalSmall() {
       <div>
         <Paper
           square
-          elevation={0}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -49,9 +42,7 @@ function CaursalSmall() {
 
             bgcolor: "background.default",
           }}
-        >
-          <Typography>{images[activeStep].label}</Typography>
-        </Paper>
+        ></Paper>
         <AutoPlaySwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={activeStep}

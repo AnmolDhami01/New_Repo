@@ -16,9 +16,11 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
+    label: "1",
     imgPath: `${DERMABANNERSMALL}`,
   },
   {
+    label: "2",
     imgPath: `${DERMABANNERSMALL1}`,
   },
 ];
@@ -38,7 +40,6 @@ export default function CaursalSmallDerma() {
       <div>
         <Paper
           square
-          elevation={0}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -46,9 +47,7 @@ export default function CaursalSmallDerma() {
 
             bgcolor: "background.default",
           }}
-        >
-          <Typography>{images[activeStep].label}</Typography>
-        </Paper>
+        ></Paper>
         <AutoPlaySwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={activeStep}

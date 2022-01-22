@@ -12,7 +12,6 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 const PreviousBtn = (props) => {
-  console.log(props);
   const { className, onClick } = props;
   return (
     <div
@@ -42,6 +41,7 @@ const NextBtn = (props) => {
 };
 
 const BootstrapMultiCarousel = (props) => {
+  const label = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <div
       className="BootstrapMulti"
@@ -52,11 +52,11 @@ const BootstrapMultiCarousel = (props) => {
           prevArrow={<PreviousBtn />}
           nextArrow={<NextBtn />}
           slidesToShow={props.count}
-          slidesToScroll={2}
+          slidesToScroll={1}
           dots
         >
           {multiData.map((item) => (
-            <Card item={item} styles={props.styles} />
+            <Card key={label} item={item} styles={props.styles} />
           ))}
         </Slider>
       </div>

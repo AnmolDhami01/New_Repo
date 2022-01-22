@@ -12,7 +12,6 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 const PreviousBtn = (props) => {
-  console.log(props);
   const { className, onClick } = props;
   return (
     <div

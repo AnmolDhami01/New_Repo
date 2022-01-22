@@ -15,12 +15,15 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
+    label: "1",
     imgPath: `${BANNER1}`,
   },
   {
+    label: "2",
     imgPath: `${BANNER2}`,
   },
   {
+    label: "3",
     imgPath: `${BANNER3}`,
   },
 ];
@@ -47,7 +50,6 @@ function Caursal() {
     <div>
       <Paper
         square
-        elevation={0}
         sx={{
           display: "flex",
           alignItems: "center",
@@ -56,7 +58,7 @@ function Caursal() {
           bgcolor: "background.default",
         }}
       >
-        <Typography>{images[activeStep].label}</Typography>
+        {/* <Typography>{images[activeStep].label}</Typography> */}
       </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}

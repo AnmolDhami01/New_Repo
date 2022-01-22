@@ -41,7 +41,6 @@ export default function CaursalSmallThird() {
       <div>
         <Paper
           square
-          elevation={0}
           sx={{
             display: "flex",
             alignItems: "center",
