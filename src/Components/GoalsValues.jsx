@@ -8,7 +8,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
 import FullWidthTabs from "./FullWidthTabs";
-
+import Caursal from "./Caursal";
+import { Paper } from "@mui/material";
 export default function GoalsValues() {
   return (
     <>
@@ -22,12 +23,11 @@ export default function GoalsValues() {
           <Grid container>
             <Grid item xs={12} md={12} lg={12}>
               <Typography
-                variant="h5"
+                sx={{ color: "#0c8540", fontWeight: "800", pt: 2 }}
                 align="center"
-                color="text.secondary"
-                paragraph
-                style={{ color: "#0c8540" }}
-                fontFamily="Poppins"
+                gutterBottom
+                variant="h4"
+                component="div"
               >
                 Tru Web's Goals and Values
               </Typography>
@@ -43,7 +43,51 @@ export default function GoalsValues() {
         }}
       >
         <Container maxWidth="xl">
-          <FullWidthTabs />
+          <Grid container spacing={2}>
+            <Grid item xs={12} lg={8}>
+              <FullWidthTabs />
+            </Grid>
+            <Grid item xs={12} lg={4}>
+              <Box component={Paper}>
+                <Typography
+                  sx={{
+                    background: "#0c8540",
+                    color: "white",
+                    fontWeight: "800",
+                    py: 1,
+                  }}
+                  align="center"
+                  gutterBottom
+                  variant="h4"
+                  component="div"
+                >
+                  Trusted by Leading Pharma Brands
+                </Typography>
+
+                <Typography
+                  align="center"
+                  gutterBottom
+                  variant="h6"
+                  component="div"
+                  sx={{ pt: 3 }}
+                >
+                  When I think of the future, I think of Evaluate Pharma, & When
+                  I Think Of Evaluate Pharma, I Think To Work With PharmaWeb.
+                  Best Experience
+                </Typography>
+
+                <Typography
+                  sx={{ color: "#0c8540", fontWeight: "800", py: 2 }}
+                  align="center"
+                  gutterBottom
+                  variant="h6"
+                  component="div"
+                >
+                  Jm HealthCare (MD)
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
     </>

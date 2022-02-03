@@ -28,6 +28,9 @@ const useStyles = makeStyles({
     // padding: "0 !important",
     alignItems: "center",
     justifyContent: "space-between",
+    "@media (max-width: 780px)": {
+      justifyContent: "space-evenly",
+    },
   },
 });
 function Topbar() {

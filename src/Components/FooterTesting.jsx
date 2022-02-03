@@ -26,10 +26,10 @@ export default function FooterTesting(props) {
           style={{ paddingTop: "25px" }}
           component="footer"
         >
-          <Grid container spacing={2}>
-            <Grid item xs={6} md={3} lg={3}>
+          <Grid container spacing={5}>
+            <Grid item xs={6} md={3} lg={6}>
               <Grid container item xs={12} spacing={2} direction="column">
-                <Grid item xs={6}>
+                <Grid item xs={12} lg={12}>
                   <Link to="/">
                     <img
                       style={{ width: "180px", height: "47px" }}
@@ -39,150 +39,164 @@ export default function FooterTesting(props) {
                     />
                   </Link>
                 </Grid>
-                <Grid item xs={6}>
-                  <Typography
-                    variant="subtitle2"
-                    align="left"
-                    paragraph
-                    style={{ color: "white" }}
-                    fontFamily="Poppins"
-                  >
-                    The main purpose of PharmaWeb.com is to bring together
-                    entire Pharma Industry at one place and provide a platform
-                    to importers, exporters, manufacturers, traders, services
-                    providers, distributors, wholesalers and governmental
-                    agencies to find trade opportunities and promote their
-                    products and services online.
-                  </Typography>
+
+                <Grid container item xs={12} lg={12}>
+                  <Grid item xs={12} md={12} lg={9}>
+                    <Typography
+                      variant="subtitle1"
+                      align="left"
+                      paragraph
+                      style={{ color: "white" }}
+                      fontFamily="Poppins"
+                    >
+                      The main purpose of PharmaWeb is to bring together entire
+                      Pharma Industry at one place and provide a platform to
+                      importers, exporters, manufacturers, traders, services
+                      providers, distributors, wholesalers and governmental
+                      agencies to find trade opportunities and promote their
+                      products and services online.
+                    </Typography>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
 
-            <Grid item xs={6} md={3} lg={3}>
-              <Grid container item xs={12} spacing={1} direction="column">
-                <Grid item xs={6}>
-                  <Typography
-                    variant="h5"
-                    paragraph
-                    style={{ color: "white" }}
-                    fontFamily="Poppins"
-                  >
-                    Company
-                  </Typography>
+            <Grid item container xs={6} md={6} lg={6}>
+              <Grid item container lg={12} spacing={5}>
+                <Grid item xs={12} md={4} lg={4}>
+                  <Grid container item xs={12} spacing={2} direction="column">
+                    <Grid item xs={6} md={12} xl={12}>
+                      <Typography
+                        variant="h5"
+                        paragraph
+                        style={{ color: "white" }}
+                        fontFamily="Poppins"
+                      >
+                        Company
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={6}
+                      //   alignItems="center"
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        color: "white",
+                      }}
+                    >
+                      <Link style={{ color: "white" }} to="/">
+                        ABOUT
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        CONTACT
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        CARRER
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        POLICY
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        TERMS & CONDITIONS
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        DISCLAMER
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        MEMBERSHIP PACKAGES
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        CANCELLATION POLICY
+                      </Link>
+                    </Grid>
+                  </Grid>
                 </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  //   alignItems="center"
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    color: "white",
-                  }}
-                >
-                  <Link style={{ color: "white" }} to="/">
-                    ABOUT
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    CONTACT
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    CARRER
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    POLICY
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    TERMS & CONDITIONS
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    DISCLAMER
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    MEMBERSHIP PACKAGES
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    CANCELLATION POLICY
-                  </Link>
-                </Grid>
-              </Grid>
-            </Grid>
 
-            <Grid item xs={6} md={3} lg={3}>
-              <Grid container item xs={12} spacing={2} direction="column">
-                <Grid item xs={6}>
-                  <Typography
-                    variant="h5"
-                    paragraph
-                    style={{ color: "white" }}
-                    fontFamily="Poppins"
-                  >
-                    Information
-                  </Typography>
+                <Grid item xs={12} md={4} lg={4}>
+                  <Grid container item xs={12} spacing={2} direction="column">
+                    <Grid item xs={6}>
+                      <Typography
+                        variant="h5"
+                        paragraph
+                        style={{ color: "white" }}
+                        fontFamily="Poppins"
+                      >
+                        Information
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={6}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        color: "white",
+                      }}
+                    >
+                      <Link style={{ color: "white" }} to="/">
+                        BLOG
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        HOW TO GET MEMBERSHIP
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        PHARMA CATEGORIES
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        TOP PHARMA COMPANIES
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        ADVERTISING
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        FAQ's
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        PRESS
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        MOLECULES LIST
+                      </Link>
+                    </Grid>
+                  </Grid>
                 </Grid>
                 <Grid
+                  sx={{ display: { xs: "none", md: "block" } }}
                   item
                   xs={6}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    color: "white",
-                  }}
+                  md={4}
+                  lg={4}
                 >
-                  <Link style={{ color: "white" }} to="/">
-                    BLOG
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    HOW TO GET MEMBERSHIP
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    PHARMA CATEGORIES
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    TOP PHARMA COMPANIES
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    ADVERTISING
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    FAQ's
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    PRESS
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    MOLECULES LIST
-                  </Link>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item xs={6} md={3} lg={3}>
-              <Grid container item xs={12} spacing={2} direction="column">
-                <Grid item xs={6}>
-                  <Typography
-                    variant="h5"
-                    paragraph
-                    style={{ color: "white" }}
-                    fontFamily="Poppins"
-                  >
-                    Legal
-                  </Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    color: "white",
-                  }}
-                >
-                  <Link style={{ color: "white" }} to="/">
-                    PRIVACY POLICY
-                  </Link>
-                  <Link style={{ color: "white" }} to="/">
-                    TERMS OF USE
-                  </Link>
+                  <Grid container item xs={12} spacing={2} direction="column">
+                    <Grid item xs={6}>
+                      <Typography
+                        variant="h5"
+                        paragraph
+                        style={{ color: "white" }}
+                        fontFamily="Poppins"
+                      >
+                        Legal
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={6}
+                      md={4}
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        color: "white",
+                      }}
+                    >
+                      <Link style={{ color: "white" }} to="/">
+                        PRIVACY POLICY
+                      </Link>
+                      <Link style={{ color: "white" }} to="/">
+                        TERMS OF USE
+                      </Link>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>

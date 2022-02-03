@@ -99,76 +99,77 @@ export default function ControlledAccordionCat(props) {
         </AccordionSummary>
         <AccordionDetails>
           <div className={classes.links}>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               PCD Pharma Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Third Party Manufacturing
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Cosematic Derma Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Allopathic Drug Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Ayurvedic PCD Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Cardiac Daibatic Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Pediatric Range Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               ENT Medicine Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Pharma Business
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Pediatric Range
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Medicine Manufacturing
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Ayurvedic Herbal
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Critical Care
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Allopathic Drug Franchise
             </Link>
-            <Link to="/testing">
+            <Link to="/company">
               <HealthAndSafetyIcon />
               Ayurvedic PCD Franchise
             </Link>
             <Box textAlign="center">
               <center>
-                {" "}
-                <Button
-                  variant="contained"
-                  size="small"
-                  sx={{ backgroundColor: "#f8b500" }}
-                >
-                  View More
-                </Button>
+                <Link to="/company">
+                  <Button
+                    variant="contained"
+                    size="small"
+                    sx={{ backgroundColor: "#f8b500" }}
+                  >
+                    View More
+                  </Button>
+                </Link>
               </center>
             </Box>
           </div>

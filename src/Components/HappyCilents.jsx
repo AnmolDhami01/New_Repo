@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import ChooseCard from "./ChooseCard";
 import ProductCard from "./ProductCard";
@@ -11,7 +11,16 @@ export default function HappyCilents() {
   return (
     <>
       <Container maxWidth="xl" sx={{ pt: 5 }}>
-        <Grid container spacing={5}>
+        <Typography
+          sx={{ color: "#0c8540", fontWeight: "800", pb: 2 }}
+          align="center"
+          gutterBottom
+          variant="h4"
+          component="div"
+        >
+          Happy Cilents
+        </Typography>
+        <Grid container spacing={2}>
           <Grid item xs={12} md={3} lg={3}>
             <HappyCilentsCards
               heading={"100+"}
@@ -23,7 +32,7 @@ export default function HappyCilents() {
           <Grid item xs={12} md={3} lg={3}>
             <HappyCilentsCards
               heading={"3000+ "}
-              body={"No.of Unique Products"}
+              body={"No.of Products"}
               image={toiletries}
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />

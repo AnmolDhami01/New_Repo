@@ -17,7 +17,7 @@ export default function HowWorks() {
       <Hidden smDown>
         <Box
           sx={{
-            pt: 5,
+            pt: 3,
           }}
         >
           <Grid container>
@@ -36,7 +36,7 @@ export default function HowWorks() {
           </Grid>
         </Box>
         <Stack
-          sx={{ pt: 4, pb: 5 }}
+          sx={{ pt: 2, pb: 2 }}
           direction="row"
           spacing={2}
           justifyContent="center"

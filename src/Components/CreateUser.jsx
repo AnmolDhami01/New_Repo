@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -13,18 +13,31 @@ import {
   Checkbox,
   Container,
   CssBaseline,
+  FormControl,
   FormControlLabel,
   Grid,
+  InputLabel,
+  NativeSelect,
   TextField,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SiginTesting from "./SiginTesting";
+import axios from "./Config/axiosConfig";
+import Joi from "joi-browser";
+import Swal from "sweetalert2";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CreateUser(props) {
+export default function CreateUser({ history, match }) {
+  let navigate = useNavigate();
+  const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState(null);
+  const [mode, setMode] = useState("CREATE");
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -34,21 +47,98 @@ export default function CreateUser(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   // eslint-disable-next-line no-console
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    //validatino
+    let result = Joi.validate(formData, formSchema, { abortEarly: false });
+    if (result.error) {
+      setErrors(result.error.details);
+    } else {
+      setErrors(null);
+
+      const response = await fetch(
+        "http://localhost:5000/api/auth/createuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            password: formData.password,
+          }),
+        }
+      );
+      const json = await response.json();
+      console.log(json);
+      if (json.success) {
+        // Save the auth token and redirect
+
+        await setOpen(false);
+        localStorage.setItem("token", json.authtoken);
+        navigate("../company", { replace: true });
+        Swal.fire({
+          title: "New Account!",
+          text: "Account Created Succesfully!",
+          icon: "success",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+      } else if (response.status === 400) {
+        await setOpen(false);
+        await Swal.fire({
+          title: "Opps!!!",
+          text: "Sorry a User with this Email already Exist . Try again with diffrent Email",
+          icon: "error",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+        setOpen(true);
+      } else if (response.status === 500) {
+        await setOpen(false);
+        await Swal.fire("Opps!!!", "Try Again Later", "error");
+        setOpen(true);
+      } else {
+        await setOpen(false);
+        await Swal.fire({
+          title: "Opps!!!",
+          text: "Something went Wrong. Try Again Later",
+          icon: "error",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+        setOpen(true);
+      }
+    }
+
+    //api call
+  };
+
+  const formSchema = {
+    name: Joi.string().min(4).max(30).required().label("Name"),
+    phone: Joi.string().min(10).max(14).required().label("phone"),
+    password: Joi.string().min(7).max(30).required().label("Password"),
+    email: Joi.string().email().min(7).max(30).required().label("Email"),
   };
 
   return (
     <div>
       <Button
-        sx={{ color: "white" }}
+        sx={{ color: "white", borderColor: "white" }}
         onClick={handleClickOpen}
+        variant="outlined"
         startIcon={<PersonAddAltSharpIcon />}
       >
         Join Free
@@ -76,97 +166,134 @@ export default function CreateUser(props) {
               <Typography component="h1" variant="h5" fontFamily="Poppins">
                 Create An Account
               </Typography>
-              <Box
-                component="form"
-                noValidate
-                onSubmit={handleSubmit}
-                sx={{ mt: 3 }}
-              >
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={12}>
-                    <TextField
-                      autoComplete="given-name"
-                      name="firstName"
-                      required
-                      fullWidth
-                      id="Name"
-                      label="Full Name"
-                      autoFocus
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      id="email"
-                      label="Email Address"
-                      name="email"
-                      autoComplete="email"
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      id="phone"
-                      label="Phone Number"
-                      name="number"
-                      autoComplete="number"
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      type="password"
-                      id="password"
-                      autoComplete="new-password"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormControlLabel
-                      fontFamily="Poppins"
-                      sx={{ fontFamily: "Poppins" }}
-                      control={
-                        <Checkbox value="allowExtraEmails" color="primary" />
-                      }
-                      label="I want to receive inspiration, marketing promotions and updates via email."
-                    />
-                  </Grid>
-                </Grid>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  style={{ backgroundColor: "#0c8540", fontFamily: "Poppins" }}
-                  onClick={handleClose}
+              <form onSubmit={handleSubmit} onChange={handleChange}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  Sign Up
-                </Button>
-                {/* <Grid container justifyContent="flex-end">
-                  <Grid item>
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      // sx={{ mt: 3, mb: 2 }}
-                      style={{
-                        backgroundColor: "#0c8540",
-                        fontFamily: "Poppins",
-                      }}
-                      onClick={handleClose}
-                    >
-                      <SiginTesting />
-                    </Button>
-                  </Grid>
-                </Grid> */}
-              </Box>
+                  <Box noValidate sx={{ mt: 3 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <TextField
+                          autoComplete="name"
+                          name="name"
+                          fullWidth
+                          id="name"
+                          label="Full Name"
+                          autoFocus
+                          InputLabelProps={{
+                            shrink: formData ? true : false,
+                          }}
+                          value={formData?.name}
+                          error={
+                            errors &&
+                            errors.find((er) => er.context.key === "name")
+                          }
+                          helperText={
+                            errors &&
+                            errors.map(
+                              (err) => err.context.key === "name" && err.message
+                            )
+                          }
+                        />
+                      </Grid>
+
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <TextField
+                          autoComplete="email"
+                          name="email"
+                          fullWidth
+                          label="Email Address"
+                          autoFocus
+                          value={formData?.email}
+                          InputLabelProps={{
+                            shrink: formData ? true : false,
+                          }}
+                          error={
+                            errors &&
+                            errors.find((er) => er.context.key === "email")
+                          }
+                          helperText={
+                            errors &&
+                            errors.map(
+                              (err) =>
+                                err.context.key === "email" && err.message
+                            )
+                          }
+                        />
+                      </Grid>
+
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <TextField
+                          autoComplete="phone"
+                          name="phone"
+                          fullWidth
+                          id="phone"
+                          label="Phone Number"
+                          autoFocus
+                          InputLabelProps={{
+                            shrink: formData ? true : false,
+                          }}
+                          value={formData?.phone}
+                          error={
+                            errors &&
+                            errors.find((er) => er.context.key === "phone")
+                          }
+                          helperText={
+                            errors &&
+                            errors.map(
+                              (err) =>
+                                err.context.key === "phone" && err.message
+                            )
+                          }
+                        />
+                      </Grid>
+
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <TextField
+                          fullWidth
+                          id="password"
+                          label="Password"
+                          type="password"
+                          name="password"
+                          autoComplete={false}
+                          InputLabelProps={{
+                            shrink: formData ? true : false,
+                          }}
+                          error={
+                            errors &&
+                            errors.find((er) => er.context.key === "password")
+                          }
+                          value={formData?.password}
+                          helperText={
+                            errors &&
+                            errors.map(
+                              (err) =>
+                                err.context.key === "password" && err.message
+                            )
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+
+                    <Grid container justifyContent="flex-end">
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          sx={{ mt: 3, mb: 2, backgroundColor: "#0c8540" }}
+                        >
+                          {mode === "CREATE" ? "SIGN UP" : "UPDATE"}
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Box>
+              </form>
             </Box>
           </Container>
         </DialogContent>

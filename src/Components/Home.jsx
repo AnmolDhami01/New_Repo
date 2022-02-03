@@ -22,12 +22,14 @@ import HowWorks from "./HowWorks";
 import CaursalSmallThird from "./CaursalSmallThird";
 import CaursalSmallDerma from "./CaursalSmallDerma";
 import ComapnyCarousel from "./ComapnyCarousel";
+import StartingCaursal from "./StartingCaursal";
+import NavCat from "./NavCat";
 
 export default function Home() {
   return (
     <>
       <Container sx={{ padding: "0 !important" }} maxWidth="xl">
-        <Caursal />
+        <StartingCaursal />
 
         <HowWorks />
 
@@ -63,15 +65,33 @@ export default function Home() {
         <CaursalSmallDerma />
 
         <HappyCilents />
+
         <ContactUs />
+
         <GoalsValues />
 
         <Hidden smDown>
-          <ComapnyCarousel count={5} />
+          <ComapnyCarousel
+            count={5}
+            styles={{
+              height: "100%",
+              width: "100%",
+              objectFit: "contain",
+              marginBottom: "10px",
+            }}
+          />
         </Hidden>
 
         <Hidden smUp>
-          <ComapnyCarousel count={1} />
+          <ComapnyCarousel
+            count={1}
+            styles={{
+              height: "100%",
+              width: "265px",
+              objectFit: "contain",
+              marginBottom: "10px",
+            }}
+          />
         </Hidden>
       </Container>
     </>

@@ -17,7 +17,11 @@ export default function ComapnyCarousel(props) {
           >
             Featured Pharma Franchise Companies
           </Typography>
-          <BootstrapMultiCarousel count={props.count} styles={props.styles} />
+          <BootstrapMultiCarousel
+            styles={props.styles}
+            count={props.count}
+            styles={props.styles}
+          />
         </Box>
       </Container>
     </>

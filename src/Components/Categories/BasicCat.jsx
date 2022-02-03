@@ -26,9 +26,10 @@ import ELKOS from "../../static/ELKOS.png";
 import JMLOGO from "../../static/JMLOGO.png";
 import STAVIC from "../../static/STAVIC.png";
 import SYNAK from "../../static/SYNAK.png";
-
+import CYNAKLIFESCIENCES from "../../static/CYNAKLIFESCIENCES.png";
 import GLOMPY_LOGO from "../../static/GLOMPY_LOGO.jpg";
 import CMPNY from "../../static/CMPNY.jpeg";
+import { Link, useNavigate } from "react-router-dom";
 const useStyles = makeStyles({
   links: {
     display: "flex",
@@ -53,6 +54,14 @@ const useStyles = makeStyles({
 });
 
 export default function BasicCat() {
+  let navigate = useNavigate();
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+    } else {
+      navigate("../", { replace: true });
+    }
+    // eslint-disable-next-line
+  }, []);
   const classes = useStyles();
   return (
     <>
@@ -73,66 +82,66 @@ export default function BasicCat() {
               </Grid>
               <Grid item lg={6}>
                 <div className={classes.links}>
-                  <a href="#">
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     PCD Pharma Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Third Party Manufacturing
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Cosematic Derma Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Allopathic Drug Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Ayurvedic PCD Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Cardiac Daibatic Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Pediatric Range Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     ENT Medicine Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Pharma Business
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Pediatric Range
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Medicine Manufacturing
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Ayurvedic Herbal
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Critical Care
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Allopathic Drug Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Ayurvedic PCD Franchise
-                  </a>
+                  </Link>
                 </div>
               </Grid>
             </Grid>
@@ -150,46 +159,46 @@ export default function BasicCat() {
               </Grid>
               <Grid item lg={6}>
                 <div className={classes.links}>
-                  <a href="#">
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     PCD Pharma Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Third Party Manufacturing
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Cosematic Derma Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Allopathic Drug Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Ayurvedic PCD Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Cardiac Daibatic Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Pediatric Range Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     ENT Medicine Franchise
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Pharma Business
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/company/nexbon">
                     <HealthAndSafetyIcon />
                     Pediatric Range
-                  </a>
+                  </Link>
                 </div>
               </Grid>
             </Grid>
@@ -200,9 +209,7 @@ export default function BasicCat() {
               <Grid item lg={4} xs={12} md={3}>
                 <BasicCatCard
                   name={"NexBon LifeSciences"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  body={"Welcome To NexBon LifeSciences Pvt. Ltd. "}
                   image={NexbonLifesciences}
                   location={"Panchkula"}
                   sxCard={{
@@ -211,30 +218,28 @@ export default function BasicCat() {
                     // marginTop: "24px",
                     marginLeft: "2px",
                   }}
+                  linkes={"/company/Nexbon"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
                   name={"JM Healthcare"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  body={"Welcome To JM Healthcare Pvt. Ltd. "}
                   image={JMLOGO}
                   location={"Chandigarh"}
                   sxCard={{
                     maxWidth: "78px",
                     marginLeft: "65px",
                   }}
+                  linkes={"/company/JM"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
-                  name={"Accumin Labs"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  name={"Accuminn Labs"}
+                  body={"Welcome To Accuminn Labs Pvt. Ltd. "}
                   image={ACCUMIN}
                   location={"Chandigarh"}
                   sxCard={{
@@ -243,15 +248,14 @@ export default function BasicCat() {
 
                     marginLeft: "2px",
                   }}
+                  linkes={"/company/Acumin"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
-                  name={"Stavics LifeSciences"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  name={"Stavic LifeSciences"}
+                  body={"Welcome To Stavic LifeSciences Pvt. Ltd. "}
                   image={STAVIC}
                   location={"Panchkula"}
                   sxCard={{
@@ -260,15 +264,14 @@ export default function BasicCat() {
                     marginLeft: "53px",
                     width: "108px",
                   }}
+                  linkes={"/company/Stavic"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
-                  name={"Synak  Lifesciences"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  name={"Cynak  Healthcare"}
+                  body={"Welcome To Cynak  Healthcare Pvt. Ltd. "}
                   image={SYNAK}
                   location={"Panchkula"}
                   sxCard={{
@@ -276,15 +279,14 @@ export default function BasicCat() {
 
                     marginLeft: "62px",
                   }}
+                  linkes={"/company/Synak"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
                   name={"Elkos LifeSciences"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  body={"Welcome To Elkos LifeSciences Pvt. Ltd. "}
                   image={ELKOS}
                   location={"Panchkula"}
                   sxCard={{
@@ -292,6 +294,7 @@ export default function BasicCat() {
 
                     marginLeft: " 38px",
                   }}
+                  linkes={"/company/Elkos"}
                 />
               </Grid>
 
@@ -303,9 +306,7 @@ export default function BasicCat() {
               >
                 <BasicCatCard
                   name={"Vasoderma Healthcare"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  body={"Welcome To Vasoderma Healthcare Pvt. Ltd. "}
                   image={NexbonLifesciences}
                   location={"Panchkula"}
                   sxCard={{
@@ -314,15 +315,14 @@ export default function BasicCat() {
                     marginTop: "24px",
                     marginLeft: "2px",
                   }}
+                  linkes={"/company/Vasoderma"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
                   name={"Glomphy Biotech"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
+                  body={"Welcome To Glomphy Biotech Pvt. Ltd. "}
                   image={GLOMPY_LOGO}
                   location={"Chandigarh"}
                   sxCard={{
@@ -331,22 +331,22 @@ export default function BasicCat() {
                     marginTop: "14px",
                     marginLeft: "18px",
                   }}
+                  linkes={"/company/Glompy"}
                 />
               </Grid>
 
-              <Grid item lg={4} md={3}>
+              <Grid item lg={4} md={3} xs={12}>
                 <BasicCatCard
-                  name={"NexBon LifeSciences"}
-                  body={
-                    "Welcome To NexBon LifeSciences Pvt. Ltd. Welcome to NexBon.."
-                  }
-                  image={NexbonLifesciences}
+                  name={"Cynak LifeSciences"}
+                  location={"Chandigarh"}
+                  body={"Welcome To Cynak LifeSciences Pvt. Ltd. "}
+                  image={CYNAKLIFESCIENCES}
                   sxCard={{
-                    width: "228px",
-                    height: "56px",
-                    marginTop: "24px",
-                    marginLeft: "2px",
+                    width: "147px",
+
+                    marginLeft: "52px",
                   }}
+                  linkes={"/company/CYNAKLIFESCIENCES "}
                 />
               </Grid>
             </Grid>

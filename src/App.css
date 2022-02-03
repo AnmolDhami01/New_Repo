@@ -101,8 +101,9 @@ nav .search_box input {
   height: 100%;
   padding: 0 10px;
   font-size: 20px;
-  width: 350px;
+  width: 475px;
   border-radius: 5px;
+  font-family: poppins;
 }
 nav .search_box span {
   color: #0a5071;
@@ -116,13 +117,13 @@ nav .search_box span {
   border-radius: 5px;
 }
 nav .search_box span:hover {
-  color: #fff;
+  color: black;
 }
 nav .search_box span::after {
   height: 100%;
   width: 0%;
   content: "";
-  background: #ff003c;
+  background: #d9f7e0;
   position: absolute;
   top: 0;
   right: 0;

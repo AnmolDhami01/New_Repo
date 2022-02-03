@@ -11,7 +11,7 @@ export default function HappyCilentsCards(props) {
   return (
     <Card
       sx={{
-        maxWidth: 355,
+        maxWidth: 455,
         height: "250px",
         padding: "50px",
         borderRaduis: "20px !important",

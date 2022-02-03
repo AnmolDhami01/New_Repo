@@ -13,7 +13,7 @@ export default function ProductCard(props) {
       sx={{
         backgroundColor: "#0c8540",
 
-        maxWidth: 355,
+        maxWidth: 455,
         height: "250px",
         padding: "50px",
         borderRaduis: "20px !important",

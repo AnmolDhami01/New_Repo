@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./BootstrapMulti.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { data, multiData } from "./data";
+import { data, multiData, Acumin } from "./data";
 
 import Rating from "@mui/material/Rating";
 import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
@@ -41,6 +41,7 @@ const NextBtn = (props) => {
 };
 
 const ProductMultiCarousel = (props) => {
+  const { company, styles } = props;
   return (
     <div
       className="BootstrapMulti"
@@ -51,14 +52,14 @@ const ProductMultiCarousel = (props) => {
           prevArrow={<PreviousBtn />}
           nextArrow={<NextBtn />}
           slidesToShow={props.count}
-          slidesToScroll={2}
+          slidesToScroll={1}
           speed={500}
           autoplay={true}
-          autoplaySpeed={1000}
+          autoplaySpeed={2000}
           dots
         >
-          {multiData.map((item) => (
-            <Card item={item} styles={props.styles} />
+          {company.map((item) => (
+            <Card item={item} styles={styles} />
           ))}
         </Slider>
       </div>
@@ -66,7 +67,7 @@ const ProductMultiCarousel = (props) => {
   );
 };
 
-const Card = ({ item }) => {
+const Card = ({ item, styles }) => {
   return (
     <>
       <div
@@ -83,17 +84,8 @@ const Card = ({ item }) => {
         {/* <span style={{ float: "right", padding: "5px" }}>
         <FavoriteBorderIcon style={{ color: "gray" }} />
     </span> */}
-        <img
-          className="multi__image"
-          src={item}
-          alt=""
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            marginBottom: "10px",
-          }}
-        />
+
+        <img className="multi__image" src={item} alt="" style={styles} />
       </div>
     </>
   );

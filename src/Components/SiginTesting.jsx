@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -16,14 +16,25 @@ import {
   FormControlLabel,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PersonAddAltSharpIcon from "@mui/icons-material/PersonAddAltSharp";
 import CreateUser from "./CreateUser";
+// import axios from "./Config/axiosConfig";
+import Joi from "joi-browser";
+import Swal from "sweetalert2";
+import axios from "axios";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function SiginTesting(props) {
+export default function SiginTesting({ history, match }) {
+  let navigate = useNavigate();
+  const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState(null);
+  const [mode, setMode] = useState("CREATE");
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -33,16 +44,38 @@ export default function SiginTesting(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+  const formSchema = {
+    password: Joi.string().min(4).max(30).required().label("Password"),
+    email: Joi.string().email().min(7).max(30).required().label("Email"),
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    //validatino
+
+    let result = Joi.validate(formData, formSchema, { abortEarly: false });
+    if (result.error) {
+      setErrors(result.error.details);
+    } else {
+      setErrors(null);
+
+      axios
+        .post("http://localhost:5000/api/auth/login", formData)
+        .then((res) => {
+          // const json = res.json();
+          if (res.status === 200) {
+            setOpen(false);
+            Swal.fire("Logged In!", "Logged In!", "success");
+            // localStorage.setItem("token", json.authtoken);
+            navigate("../company", { replace: true });
+          } else {
+            Swal.fire("Opps!", "Something went wrong...", "error");
+          }
+        });
+    }
+  };
   return (
     <div>
       <Button
@@ -75,65 +108,83 @@ export default function SiginTesting(props) {
               <Typography component="h1" variant="h5" fontFamily="Poppins">
                 Login
               </Typography>
-              <Box
-                component="form"
-                noValidate
-                onSubmit={handleSubmit}
-                sx={{ mt: 3 }}
-              >
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      id="email"
-                      label="Email Address"
-                      name="email"
-                      autoComplete="email"
-                    />
-                  </Grid>
-
-                  <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      type="password"
-                      id="password"
-                      autoComplete="new-password"
-                    />
-                  </Grid>
-                </Grid>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  onClick={handleClose}
-                  style={{ backgroundColor: "#0c8540", fontFamily: "Poppins" }}
+              <form onSubmit={handleSubmit} onChange={handleChange}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  Sign In
-                </Button>
-                {/* <Grid container justifyContent="flex-end">
-                  <Grid item>
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      // sx={{ mt: 3, mb: 2 }}
-                      style={{
-                        backgroundColor: "#0c8540",
-                        fontFamily: "Poppins",
-                      }}
-                      onClick={handleClose}
-                    >
-               
-                    </Button>
-               
-                  </Grid>
-                </Grid> */}
-              </Box>
+                  <Box noValidate sx={{ mt: 3 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <TextField
+                          autoComplete="email"
+                          name="email"
+                          fullWidth
+                          label="Email Address"
+                          autoFocus
+                          value={formData?.email}
+                          InputLabelProps={{
+                            shrink: formData ? true : false,
+                          }}
+                          error={
+                            errors &&
+                            errors.find((er) => er.context.key === "email")
+                          }
+                          helperText={
+                            errors &&
+                            errors.map(
+                              (err) =>
+                                err.context.key === "email" && err.message
+                            )
+                          }
+                        />
+                      </Grid>
+
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <TextField
+                          fullWidth
+                          id="password"
+                          label="Password"
+                          type="password"
+                          name="password"
+                          autoComplete={false}
+                          InputLabelProps={{
+                            shrink: formData ? true : false,
+                          }}
+                          error={
+                            errors &&
+                            errors.find((er) => er.context.key === "password")
+                          }
+                          value={formData?.password}
+                          helperText={
+                            errors &&
+                            errors.map(
+                              (err) =>
+                                err.context.key === "password" && err.message
+                            )
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+
+                    <Grid container justifyContent="flex-end">
+                      <Grid item xs={12} sm={12} lg={12}>
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          sx={{ mt: 3, mb: 2, backgroundColor: "#0c8540" }}
+                        >
+                          SIGN IN
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Box>
+              </form>
             </Box>
           </Container>
         </DialogContent>

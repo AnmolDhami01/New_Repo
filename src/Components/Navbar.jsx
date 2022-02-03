@@ -1,6 +1,6 @@
 import { Button, Container, Hidden } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import mainlogo from "../static/mainlogo.png";
 import HoverLinks from "./HoverLinks";
 import PersonIcon from "@mui/icons-material/Person";
@@ -9,8 +9,24 @@ import LoginTesting from "./SiginTesting";
 import ContactusTesting from "./ContactusTesting";
 import CreateUser from "./CreateUser";
 import SiginTesting from "./SiginTesting";
-
+import SiginTesting1 from "./SiginTesting1";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Swal from "sweetalert2";
 export default function Navbar() {
+  const handleLogout = async (params) => {
+    localStorage.removeItem("token");
+    // navigate.push("/");
+    await navigate("../", { replace: true });
+    await Swal.fire({
+      title: "Logged Out!",
+      text: "Logged Out Succesfully!",
+      icon: "success",
+      timer: 2000,
+      timerProgressBar: true,
+    });
+  };
+  let location = useLocation();
+  let navigate = useNavigate();
   return (
     <>
       <div className="navDiv">
@@ -28,7 +44,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="search_box">
-              <Hidden smDown>
+              {/* <Hidden smDown>
                 <HoverLinks
                   heading={"Categories"}
                   text="PCD Pharma FRANCHISE"
@@ -43,35 +59,43 @@ export default function Navbar() {
                   text9="Critical Care  Franchise"
                   text10="Medicine Manufacturing Companies"
                 />
-              </Hidden>
+              </Hidden> */}
               <input type="search" placeholder="Search here" />
               <span className="fa fa-search"></span>
             </div>
             <ol>
-              <li>
-                {/* <Link to="/login">
-                  <Button sx={{ color: "white" }} startIcon={<PersonIcon />}>
-                    Join Free
-                  </Button>
-                </Link> */}
-                <CreateUser />
-              </li>
-              <li>
-                {/* <Link to="/sigin">
-                  <Button sx={{ color: "white" }} startIcon={<PersonIcon />}>
-                    Sign In
-                  </Button>
-                </Link> */}
-                <SiginTesting />
-              </li>
-              <li>
-                {/* <Link to="/contactus">
-                  <Button sx={{ color: "white" }} startIcon={<PersonIcon />}>
-                    Post Requirment
-                  </Button>
-                </Link> */}
-                <ContactusTesting />
-              </li>
+              {!localStorage.getItem("token") ? (
+                <>
+                  <li>
+                    <CreateUser />
+                  </li>
+                  <li>
+                    <SiginTesting1 />
+                  </li>
+                  <li>
+                    <ContactusTesting />
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <ContactusTesting />
+                  </li>
+                  <li>
+                    <Button
+                      sx={{
+                        color: "white",
+                        borderColor: "white",
+                      }}
+                      variant="outlined"
+                      onClick={handleLogout}
+                      endIcon={<LogoutIcon />}
+                    >
+                      Logout
+                    </Button>
+                  </li>
+                </>
+              )}
             </ol>
             <label htmlFor="check" className="bar">
               <span className="fa fa-bars" id="bars"></span>

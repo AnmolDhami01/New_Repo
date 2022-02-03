@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function Card2(props) {
   return (
-    <Link to="/change" style={{ textDecoration: "none" }}>
+    <Link to="/company" style={{ textDecoration: "none" }}>
       <Card sx={{ maxWidth: 845, borderRaduis: "20px" }}>
         <CardMedia
           component="img"

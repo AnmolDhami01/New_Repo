@@ -7,7 +7,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import HoveredLinks from "./HoveredLinks";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import { Typography } from "@mui/material";
+import Icon from "@mui/material/Icon";
 
+import injectionIcon from "../static/injectionIcon.png";
+import ListAltSharpIcon from "@mui/icons-material/ListAltSharp";
+import { Link } from "react-router-dom";
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -21,6 +26,11 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 }));
 
 export default function HoverLinks(props) {
+  const svgIcon = (
+    <Icon>
+      <img alt="edit" src={injectionIcon} />
+    </Icon>
+  );
   return (
     <div>
       <HtmlTooltip
@@ -42,25 +52,30 @@ export default function HoverLinks(props) {
           </React.Fragment>
         }
       >
-        <Button
-          variant="outlined"
-          sx={{
-            color: "#0C8540",
-            fontFamily: "Poppins",
-            background: "white",
-            height: "35px",
-            "&:hover": {
-              backgroundColor: "white",
-            },
-            "&:focus": {
-              backgroundColor: "white",
-            },
-          }}
-          endIcon={<ExpandMoreIcon />}
-        >
-          {props.heading}
-        </Button>
-        {/* <Typography fontFamily="Poppins">{props.heading}</Typography> */}
+        {/* <img src={injectionIcon} alt="" srcset="" /> */}
+        <Link to="/company">
+          <Button
+            // variant="contained"
+            startIcon={<MedicalServicesIcon />}
+            sx={{
+              color: "#0C8540",
+              fontFamily: "Poppins",
+              // background: "white",
+              height: "35px",
+              "&:hover": {
+                backgroundColor: "white",
+              },
+              "&:focus": {
+                backgroundColor: "white",
+              },
+            }}
+            endIcon={<ExpandMoreIcon />}
+          >
+            {/* {props.heading} */}
+
+            <Typography fontFamily="Poppins">{props.heading}</Typography>
+          </Button>
+        </Link>
       </HtmlTooltip>
     </div>
   );

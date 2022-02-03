@@ -9,6 +9,7 @@ import CallIcon from "@mui/icons-material/Call";
 import BungalowIcon from "@mui/icons-material/Bungalow";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 import MaxWidthContact from "./MaxWidthContact";
+import { Link } from "react-router-dom";
 export default function BasicCatCard(props) {
   return (
     <Card sx={{ maxWidth: 445 }}>
@@ -37,14 +38,16 @@ export default function BasicCatCard(props) {
       </CardActionArea>
       <CardActions>
         <MaxWidthContact />
-        <Button
-          size="small"
-          variant="contained"
-          sx={{ backgroundColor: "#F8B500" }}
-          startIcon={<BungalowIcon />}
-        >
-          Catlog
-        </Button>
+        <Link to={props.linkes}>
+          <Button
+            size="small"
+            variant="contained"
+            sx={{ backgroundColor: "#F8B500" }}
+            startIcon={<BungalowIcon />}
+          >
+            Catlog
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

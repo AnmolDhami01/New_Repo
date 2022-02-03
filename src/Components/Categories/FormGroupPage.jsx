@@ -14,7 +14,9 @@ export default function FormGroupPage(props) {
       sx={{ maxWidth: "480px !important", padding: "0 !important" }}
       component={Paper}
     >
-      <div style={{ border: "2px solid #0c8540", padding: "20px" }}>
+      <div
+        style={{ border: "2px solid #0c8540", padding: "35px 15px 35px 15px" }}
+      >
         <Typography
           variant="h5"
           align="center"

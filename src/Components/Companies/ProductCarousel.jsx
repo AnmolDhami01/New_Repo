@@ -3,8 +3,9 @@ import { Box } from "@mui/system";
 import React from "react";
 import BootstrapMultiCarousel from "../BootstrapMultiCarousel";
 import ProductMultiCarousel from "./ProductMultiCarousel";
-
+import { AcuminPhotos } from "./data";
 export default function ProductCarousel(props) {
+  // const { company } = props;
   return (
     <>
       <Container maxWidth="xl">
@@ -17,7 +18,11 @@ export default function ProductCarousel(props) {
           >
             Our Products
           </Typography>
-          <ProductMultiCarousel count={props.count} styles={props.styles} />
+          <ProductMultiCarousel
+            count={props.count}
+            styles={props.styles}
+            company={AcuminPhotos}
+          />
         </Box>
       </Container>
     </>

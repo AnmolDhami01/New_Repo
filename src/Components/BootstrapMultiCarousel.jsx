@@ -10,6 +10,7 @@ import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const PreviousBtn = (props) => {
   const { className, onClick } = props;
@@ -42,6 +43,7 @@ const NextBtn = (props) => {
 
 const BootstrapMultiCarousel = (props) => {
   const label = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const { company, styles } = props;
   return (
     <div
       className="BootstrapMulti"
@@ -56,7 +58,7 @@ const BootstrapMultiCarousel = (props) => {
           dots
         >
           {multiData.map((item) => (
-            <Card key={label} item={item} styles={props.styles} />
+            <Card key={label} item={item} styles={styles} />
           ))}
         </Slider>
       </div>
@@ -72,7 +74,7 @@ const Card = ({ item }) => {
           textAlign: "center",
           margin: 10,
           padding: "0 10px",
-          width: 210,
+          // width: 210,
           boxShadow: "0 1px 6px 0 rgb(32 33 36 / 28%)",
           backgroundColor: "white",
           borderRadius: 5,
@@ -116,7 +118,9 @@ const Card = ({ item }) => {
         </span>
         <span style={{ color: "gray", fontWeight: 700 }}>$7071</span>
     </p> */}
-        <button>View More</button>
+        <Link to="/company">
+          <button>View More</button>
+        </Link>
       </div>
     </>
   );
