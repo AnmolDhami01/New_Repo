@@ -30,7 +30,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Grid container spacing={5}>
           <Grid item xs={12} md={3} lg={12} sm={12}>
             <Typography

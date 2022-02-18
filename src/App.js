@@ -70,9 +70,17 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <>
-          <LoadingBar color="red" progress={progress} height={3} />
-          <Topbar />
-          <Navbar setProgress={setProgress} />
+          {!localStorage.getItem("token") ? (
+            <>
+              <LoadingBar color="red" progress={progress} height={3} />
+              <Topbar />
+              <Navbar setProgress={setProgress} />
+            </>
+          ) : (
+            <>
+              <DashboardSidebar />
+            </>
+          )}
 
           {/* <Box sx={{ py: 5 }} display={{ xs: "none", lg: "none" }}>
             <CreateUser  />
@@ -115,7 +123,13 @@ export default function App() {
               <Route path="*" element={<ErrorPage />}></Route>
             </Routes>
           </Container>
-          <FooterTesting />
+          {!localStorage.getItem("token") ? (
+            <>
+              <FooterTesting />
+            </>
+          ) : (
+            <></>
+          )}
         </>
         <>
           <Container maxWidth="xl" sx={{ padding: "0 !important" }}>

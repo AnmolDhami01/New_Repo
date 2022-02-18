@@ -1,4 +1,4 @@
-import { Button, Container, Hidden } from "@mui/material";
+import { Button, Container, Hidden, Box } from "@mui/material";
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import mainlogo from "../static/mainlogo.png";
@@ -15,6 +15,8 @@ import Swal from "sweetalert2";
 import LoadingBar from "react-top-loading-bar";
 import UserButton from "./UserButton";
 import Profile from "./Profile";
+import DashboardSidebar from "../Components/dashboard/DashboardSidebar";
+
 export default function Navbar({ setProgress }) {
   const handleLogout = async (params) => {
     localStorage.removeItem("token");
@@ -96,6 +98,9 @@ export default function Navbar({ setProgress }) {
                     >
                       Logout
                     </Button> */}
+                    <Box>
+                      <DashboardSidebar />
+                    </Box>
                     <UserButton
                       handleLogout={handleLogout}
                       setProgress={setProgress}
