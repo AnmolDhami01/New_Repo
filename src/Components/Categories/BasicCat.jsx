@@ -54,14 +54,6 @@ const useStyles = makeStyles({
 });
 
 export default function BasicCat() {
-  let navigate = useNavigate();
-  React.useEffect(() => {
-    if (localStorage.getItem("token")) {
-    } else {
-      navigate("../", { replace: true });
-    }
-    // eslint-disable-next-line
-  }, []);
   const classes = useStyles();
   return (
     <>

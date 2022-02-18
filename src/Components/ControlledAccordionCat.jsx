@@ -69,7 +69,8 @@ const AccordionSummary = styled((props) => (
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
+  // padding: theme.spacing(1),
+  padding: "0px 0px 13px 20px",
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 

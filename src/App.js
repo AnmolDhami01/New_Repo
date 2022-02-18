@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Topbar from "./Components/Topbar";
 import Home from "./Components/Home";
 import { Route, Routes } from "react-router-dom";
@@ -30,6 +30,21 @@ import ScrollToTop from "./ScrollToTop";
 import Dashboard from "./Components/Dashboard";
 import Login from "./Components/Login";
 import SiginTesting1 from "./Components/SiginTesting1";
+import Chartjs from "./Components/dashboard/Chartjs";
+// import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import LoadingBar from "react-top-loading-bar";
+import { useState } from "react";
+import CreateUser from "./Components/CreateUser";
+import { Box } from "@mui/system";
+import UserButton from "./Components/UserButton";
+import Profile from "./Components/Profile";
+import CreateComapany from "./Components/CreateCompany";
+import FileUploadScreen from "./Components/screens/FileUploadScreen";
+import MainScreen from "./Components/screens/MainScreen";
+import Main from "./Components/screens/Main";
+import Poppins from "./fonts/Poppins-Black.ttf";
+import ProductList from "./Components/screens/ProductList";
+import DashboardSidebar from "./Components/dashboard/DashboardSidebar";
 
 let theme = createTheme({
   palette: {
@@ -39,65 +54,75 @@ let theme = createTheme({
     secondary: {
       main: "#F8B500",
     },
-  },
-});
-
-theme = createTheme(theme, {
-  palette: {
-    info: {
-      main: theme.palette.secondary.main,
+    typography: {
+      fontFamily: ["Poppins", "sans-serif"].join(","),
     },
   },
 });
 
 export default function App() {
+  const [progress, setProgress] = useState(0);
   function scrollTop() {
     window.scrollTo(0, 0);
   }
+  const apiKey = process.env.REACT_APP_NEXBON_TOKEN; // TAKING VALUE FROM .env.local
   return (
     <>
-      <>
-        <Topbar />
-        <Navbar />
+      <ThemeProvider theme={theme}>
+        <>
+          <LoadingBar color="red" progress={progress} height={3} />
+          <Topbar />
+          <Navbar setProgress={setProgress} />
 
-        <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
+          {/* <Box sx={{ py: 5 }} display={{ xs: "none", lg: "none" }}>
+            <CreateUser  />
+          </Box> */}
 
-            <Route path="/contactus" element={<ContactUs2 />}></Route>
+          <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+            {/* <DashboardSidebar /> */}
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
 
-            <Route
-              path="/company"
-              element={<BasicCat />}
-              preload={scrollTop}
-            ></Route>
+              <Route path="/contactus" element={<ContactUs2 />}></Route>
 
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="test" element={<SiginTesting1 />}></Route>
+              <Route path="/newCompany" element={<CreateComapany />}></Route>
 
-            <Route path="/company/Nexbon" element={<Nexbon />}></Route>
-            <Route path="/company/JM" element={<JM />}></Route>
-            <Route path="/company/Acumin" element={<Acumin />}></Route>
-            <Route path="/company/Stavic" element={<Stavic />}></Route>
-            <Route path="/company/Synak" element={<Synak />}></Route>
-            <Route path="/company/Elkos" element={<Elkos />}></Route>
-            <Route path="/company/Vasoderma" element={<Vasoderma />}></Route>
-            <Route path="/company/Glompy" element={<Glompy />}></Route>
-            <Route
-              path="/company/CYNAKLIFESCIENCES"
-              element={<Alencure />}
-            ></Route>
+              <Route path="/test" element={<MainScreen />}></Route>
+              <Route path="/testing" element={<Main />}></Route>
 
-            <Route path="*" element={<ErrorPage />}></Route>
-          </Routes>
-        </Container>
-        <FooterTesting />
-      </>
-      <>
-        <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
-          <Routes></Routes>
-        </Container>
-      </>
+              <Route
+                path="/company/AddProduct"
+                element={<ProductList />}
+              ></Route>
+
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/dashboard/profile" element={<Profile />}></Route>
+
+              <Route path="/company" element={<BasicCat />}></Route>
+              <Route path="/company/Nexbon" element={<Nexbon />}></Route>
+              <Route path="/company/JM" element={<JM />}></Route>
+              <Route path="/company/Acumin" element={<Acumin />}></Route>
+              <Route path="/company/Stavic" element={<Stavic />}></Route>
+              <Route path="/company/Synak" element={<Synak />}></Route>
+              <Route path="/company/Elkos" element={<Elkos />}></Route>
+              <Route path="/company/Vasoderma" element={<Vasoderma />}></Route>
+              <Route path="/company/Glompy" element={<Glompy />}></Route>
+              <Route
+                path="/company/CYNAKLIFESCIENCES"
+                element={<Alencure />}
+              ></Route>
+
+              <Route path="*" element={<ErrorPage />}></Route>
+            </Routes>
+          </Container>
+          <FooterTesting />
+        </>
+        <>
+          <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+            <Routes></Routes>
+          </Container>
+        </>
+      </ThemeProvider>
     </>
   );
 }

@@ -12,7 +12,10 @@ import SiginTesting from "./SiginTesting";
 import SiginTesting1 from "./SiginTesting1";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Swal from "sweetalert2";
-export default function Navbar() {
+import LoadingBar from "react-top-loading-bar";
+import UserButton from "./UserButton";
+import Profile from "./Profile";
+export default function Navbar({ setProgress }) {
   const handleLogout = async (params) => {
     localStorage.removeItem("token");
     // navigate.push("/");
@@ -67,22 +70,22 @@ export default function Navbar() {
               {!localStorage.getItem("token") ? (
                 <>
                   <li>
-                    <CreateUser />
+                    <CreateUser setProgress={setProgress} />
                   </li>
                   <li>
-                    <SiginTesting1 />
+                    <SiginTesting1 setProgress={setProgress} />
                   </li>
                   <li>
-                    <ContactusTesting />
+                    <ContactusTesting setProgress={setProgress} />
                   </li>
                 </>
               ) : (
                 <>
                   <li>
-                    <ContactusTesting />
+                    <ContactusTesting setProgress={setProgress} />
                   </li>
                   <li>
-                    <Button
+                    {/* <Button
                       sx={{
                         color: "white",
                         borderColor: "white",
@@ -92,7 +95,11 @@ export default function Navbar() {
                       endIcon={<LogoutIcon />}
                     >
                       Logout
-                    </Button>
+                    </Button> */}
+                    <UserButton
+                      handleLogout={handleLogout}
+                      setProgress={setProgress}
+                    />
                   </li>
                 </>
               )}

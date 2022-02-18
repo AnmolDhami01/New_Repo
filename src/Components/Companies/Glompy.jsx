@@ -70,15 +70,8 @@ export default function Glompy() {
           </Box>
         </Box>
         <DealIn
-          companyName={"Welcome To Glompy Healthcare (P) Ltd."}
-          body={
-            "In the year 2019, Dalbet Pharmacy stepped in the Indian pharmaceutical sector. From Chandigarh (India), we are helping and supporting customers with large supply of Fungal Diastase And Papin Syrups, Cefixime Dispersible Tablets IPs, Multivitamin And Multimineral Softgel Capsules, Pain Relief Oils, etc.Vision: To lead the Pharma sector globally by bringing better & innovative therapeutic solutions for the healthier lives of people.SEO Services: To promote and serve the finest grade of affordable drugs to maximum required individuals.Brand Marketing: Our brand represents integrity, quality, innovation and collaboration with latest technology. From various hospitals to clinics, we are serving & supporting all customers in different therapeutic segments."
-          }
-          CEO={"Mr. Abhiraj Sidhu"}
-          address={
-            "B No. 136, 140/3, Industrial Area, Near Bhushan, Phase 1, Chandigarh, Chandigarh, 160002, India"
-          }
-          EYear={"2016"}
+          companyNumber={6}
+          CompanyToken={process.env.REACT_APP_NEXBON_TOKEN}
         />
       </Container>
     </>

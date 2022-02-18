@@ -40,7 +40,12 @@ export default function StartingCaursal(props) {
             >
               <Grid item lg={3}>
                 <Typography
-                  sx={{ color: "#0C8540", fontFamily: "800", pt: 2 }}
+                  sx={{
+                    color: "#0C8540",
+                    fontFamily: "Poppins",
+                    fontWeight: "750",
+                    pt: 2,
+                  }}
                   align="left"
                   variant="h2"
                   gutterBottom
@@ -52,7 +57,11 @@ export default function StartingCaursal(props) {
 
               <Grid item lg={3}>
                 <Typography
-                  // sx={{ color: "white" }}
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontWeight: "600",
+                    display: { md: "flex", lg: "none", xl: "flex" },
+                  }}
                   align="left"
                   variant="h6"
                   component="div"
@@ -63,23 +72,6 @@ export default function StartingCaursal(props) {
               </Grid>
 
               <Grid item lg={3}>
-                {/* <Button
-                  fullWidth
-                  variant="contained"
-                  size="large"
-                  sx={{ pt: 1, mt: 5 }}
-                  onClick={props.onClick}
-                  style={{ backgroundColor: "#0c8540", fontFamily: "Poppins" }}
-                >
-                  <Typography
-                    // sx={{ color: "white" }}
-                    align="center"
-                    variant="h5"
-                    component="div"
-                  >
-                    Send Enquiry
-                  </Typography>
-                </Button> */}
                 <SendEnquiry />
               </Grid>
             </Grid>

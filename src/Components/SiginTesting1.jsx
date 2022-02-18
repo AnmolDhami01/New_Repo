@@ -27,7 +27,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function SiginTesting1({ history, match }) {
+export default function SiginTesting1({ history, match, setProgress }) {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState(null);
@@ -62,24 +62,30 @@ export default function SiginTesting1({ history, match }) {
       setErrors(result.error.details);
     } else {
       setErrors(null);
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
+      setProgress(10);
+      const response = await fetch(
+        "https://pharmawebb.herokuapp.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
+      setProgress(30);
       const json = await response.json();
       console.log(json);
+      setProgress(70);
       if (json.success) {
         // Save the auth token and redirect
         await setOpen(false);
+        setProgress(100);
         localStorage.setItem("token", json.authtoken);
-        navigate("../company", { replace: true });
+        navigate("../dashboard", { replace: true });
         Swal.fire({
           title: "Logged In!",
           text: "Logged In!",
@@ -89,6 +95,7 @@ export default function SiginTesting1({ history, match }) {
         });
       } else {
         await setOpen(false);
+        setProgress(100);
         await Swal.fire({
           title: "Opps!",
           text: "Please Enter Your Credentials Carefully",
@@ -111,6 +118,7 @@ export default function SiginTesting1({ history, match }) {
         sx={{
           color: "white",
           borderColor: "white",
+          fontFamily: "Poppins",
         }}
         onClick={handleClickOpen}
         startIcon={<PersonIcon />}
@@ -209,7 +217,12 @@ export default function SiginTesting1({ history, match }) {
                           type="submit"
                           fullWidth
                           variant="contained"
-                          sx={{ mt: 3, mb: 2, backgroundColor: "#0c8540" }}
+                          sx={{
+                            mt: 3,
+                            mb: 2,
+                            backgroundColor: "#0c8540",
+                            fontFamily: "Poppins",
+                          }}
                         >
                           SIGN IN
                         </Button>

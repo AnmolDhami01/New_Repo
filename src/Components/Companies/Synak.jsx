@@ -70,15 +70,8 @@ export default function Synak() {
           </Box>
         </Box>
         <DealIn
-          companyName={"Welcome To Cynak Healthcare (P) Ltd."}
-          body={
-            "Started in the year 2017, we “Cynak Healthcare” has successfully emerged as a major manufacturer of high-quality Pharmaceutical Products. Offered products range consists of Pharmaceutical Tablets, Pharmaceutical Capsules, and Pharmaceutical Injectable. Also, our range is acknowledged due to the features like accurate composition, high purity, effectiveness, and remarkably long life.Being a professional firm, we have quality-focused behavior that helps us in achieving a top position in the market. We are supported by an ultra-modern infrastructure. Further, quality is one of the main elements which provide a notable identity to the pharmaceutical products and makes them different from the others available in the market. Under the headship of our mentor Mr. Sunny Gupta, our organization is moving ahead in this cutting-edge competition. He has knowledge that helped us in design immaculate pharmaceutical products for the clients.We work very hard to bring the good quality focus of our custom. In addition to being the market leader in the antibiotics, it has a presence in very therapeutic segments such was antipyretic, anti-inflammatory, antibiotics, cardiovascular, antilipidemic, Antibes, muscle relaxant, immunosuppressant, antimalarial and anti-infective etc.Every day we make sure that we gain a huge client base and that is done with the help of team of skilled professionals who are specifically trained to analyze highly effective Pharmaceutical products. Our products are appreciated for purity, accurate composition, quick relief and long lasting effect owing to their testing that is carried under strict norms and parameters and also as per guidelines of the industry. Our skilled, manpower has expertise in the wide diversity of fields that makes them one of reason where we stand today. We focus on every parameter starting from procurement of products, to best possible technology."
-          }
-          CEO={"Mr Rakesh "}
-          address={
-            "SCF-231, IInd Floor, Sector - 20, Panchkula, Haryana, Panchkula Haryana 134112"
-          }
-          EYear={"2017"}
+          companyNumber={4}
+          CompanyToken={process.env.REACT_APP_NEXBON_TOKEN}
         />
       </Container>
     </>

@@ -1,4 +1,4 @@
-import { Container, Hidden } from "@mui/material";
+import { Box, Container, Hidden } from "@mui/material";
 import React from "react";
 import Caursal from "./Caursal";
 import ChooseUs from "./ChooseUs";
@@ -70,7 +70,11 @@ export default function Home() {
 
         <GoalsValues />
 
-        <Hidden smDown>
+        <Box
+          sx={{
+            display: { xs: "none", sm: "none", md: "flex" },
+          }}
+        >
           <ComapnyCarousel
             count={5}
             styles={{
@@ -80,9 +84,29 @@ export default function Home() {
               marginBottom: "10px",
             }}
           />
-        </Hidden>
+        </Box>
 
-        <Hidden smUp>
+        <Box
+          sx={{
+            display: { xs: "none", sm: "flex", md: "none" },
+          }}
+        >
+          <ComapnyCarousel
+            count={2}
+            styles={{
+              height: "100%",
+              width: "265px",
+              objectFit: "contain",
+              marginBottom: "10px",
+            }}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: { xs: "flex", sm: "none" },
+          }}
+        >
           <ComapnyCarousel
             count={1}
             styles={{
@@ -92,7 +116,7 @@ export default function Home() {
               marginBottom: "10px",
             }}
           />
-        </Hidden>
+        </Box>
       </Container>
     </>
   );

@@ -15,50 +15,43 @@ export default function ProductCard(props) {
 
         maxWidth: 455,
         height: "250px",
-        padding: "50px",
+        minHeight: 250,
+        padding: "30px",
         borderRaduis: "20px !important",
       }}
     >
-      <CardActionArea>
-        <Box textAlign="center">
-          <Button
-            variant="contained"
-            textAlign="center"
-            sx={{
+      <Box textAlign="center">
+        <Button
+          variant="contained"
+          textAlign="center"
+          sx={{
+            backgroundColor: "#f8b500",
+            height: "86px",
+            borderRadius: "45px",
+            "&:hover": {
               backgroundColor: "#f8b500",
-              height: "86px",
-              borderRadius: "45px",
-            }}
-          >
-            <CardMedia
-              component="img"
-              height="62px"
-              image={props.image}
-              alt="green iguana"
-            />
-          </Button>
-        </Box>
-        <CardContent>
-          <Typography
-            sx={{ color: "white" }}
-            align="center"
-            gutterBottom
-            variant="h4"
-            component="div"
-          >
-            {props.heading}
-          </Typography>
-          <Typography
-            align="center"
-            gutterBottom
-            variant="body1"
-            component="div"
-          >
-            {props.body}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions></CardActions>
+            },
+          }}
+        >
+          <CardMedia
+            component="img"
+            height="62px"
+            image={props.image}
+            alt="product"
+          />
+        </Button>
+      </Box>
+      <CardContent>
+        <Typography
+          sx={{ color: "white" }}
+          align="center"
+          gutterBottom
+          variant="h4"
+          component="div"
+        >
+          {props.heading}
+        </Typography>
+      </CardContent>
     </Card>
   );
 }

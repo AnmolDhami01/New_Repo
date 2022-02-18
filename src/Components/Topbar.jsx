@@ -32,6 +32,9 @@ const useStyles = makeStyles({
       justifyContent: "space-evenly",
     },
   },
+  fontPoppins: {
+    fontFamily: "Poppins",
+  },
 });
 function Topbar() {
   const classes = useStyles();

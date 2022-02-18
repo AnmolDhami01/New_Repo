@@ -13,6 +13,7 @@ import TableRow from "@mui/material/TableRow";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
+import { NEXBON_TOKEN } from "../../base";
 const useStyles = makeStyles({
   links: {
     display: "flex",
@@ -33,6 +34,26 @@ const useStyles = makeStyles({
 });
 
 export default function DealIn(props) {
+  const [comapanyDetails, setComapanyDetails] = React.useState({
+    id: "",
+    user: "",
+    nature: "",
+    additional: "",
+    ceo: "",
+    aboutUs: "",
+    companyName: "",
+    firstName: "",
+    lastName: "",
+    Address: "",
+    city: "",
+    state: "",
+    pincode: "",
+    gstNumber: "",
+    crn: "",
+    noEmployes: "",
+    yearEstablishment: "",
+    legalStatus: "",
+  });
   const links = [
     {
       id: 1,
@@ -120,6 +141,52 @@ export default function DealIn(props) {
       linkes: "OralLiquids",
     },
   ];
+
+  const getUserCompany = async () => {
+    // API Call
+    const response = await fetch(
+      `http://localhost:5000/api/company/fetchallcompany`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // "auth-token": localStorage.getItem("token"),
+          "auth-token": props.CompanyToken,
+        },
+      }
+    );
+    const json = await response.json();
+
+    // setLoading(false);
+    let index = await props.companyNumber;
+    // index = 0;
+
+    setComapanyDetails({
+      id: json[index]._id,
+      user: json[index].user,
+      nature: json[index].nature,
+      additional: json[index].additional,
+      ceo: json[index].ceo,
+      aboutUs: json[index].aboutUs,
+      companyName: json[index].companyName,
+      firstName: json[index].firstName,
+      lastName: json[index].lastName,
+      Address: json[index].Address,
+      city: json[index].city,
+      state: json[index].state,
+      pincode: json[index].pincode,
+      gstNumber: json[index].gstNumber,
+      crn: json[index].crn,
+      noEmployes: json[index].noEmployes,
+      yearEstablishment: json[index].yearEstablishment,
+      legalStatus: json[index].legalStatus,
+    });
+  };
+
+  React.useEffect(() => {
+    getUserCompany();
+  }, []);
+
   const classes = useStyles();
   return (
     <Grid container spacing={2}>
@@ -140,7 +207,8 @@ export default function DealIn(props) {
             </Typography>
             {links.map((link) => (
               <div className={classes.links} key={link.id}>
-                <Link to={link.linkes}>
+                {/* <Link to={link.linkes}> */}
+                <Link to="#">
                   <HealthAndSafetyIcon />
                   {link.name}
                 </Link>
@@ -167,12 +235,12 @@ export default function DealIn(props) {
                 variant="h4"
                 component="div"
               >
-                {props.companyName}
+                Welcome to {comapanyDetails.companyName}
               </Typography>
             </Grid>
 
             <Grid item lg={6} xs={12}>
-              {props.body}
+              {comapanyDetails.aboutUs}
             </Grid>
 
             <Grid item lg={6} xs={12}>
@@ -187,7 +255,7 @@ export default function DealIn(props) {
                         Nature of Business
                       </TableCell>
                       <TableCell align="right">
-                        PCD/Pharma Franchise and Manufacturer
+                        {comapanyDetails.nature}
                       </TableCell>
                     </TableRow>
 
@@ -198,7 +266,7 @@ export default function DealIn(props) {
                         Additional Business
                       </TableCell>
                       <TableCell align="right">
-                        Wholesaler, Service Provider
+                        {comapanyDetails.additional}
                       </TableCell>
                     </TableRow>
                     <TableRow
@@ -207,7 +275,10 @@ export default function DealIn(props) {
                       <TableCell component="th" scope="row">
                         Company CEO
                       </TableCell>
-                      <TableCell align="right">{props.CEO}</TableCell>
+                      <TableCell align="right">
+                        {" "}
+                        {comapanyDetails.ceo}
+                      </TableCell>
                     </TableRow>
 
                     <TableRow
@@ -216,18 +287,18 @@ export default function DealIn(props) {
                       <TableCell component="th" scope="row">
                         Registered Address
                       </TableCell>
-                      <TableCell align="right">{props.address}</TableCell>
+                      <TableCell align="right">
+                        {comapanyDetails.Address}
+                      </TableCell>
                     </TableRow>
 
                     <TableRow
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
                       <TableCell component="th" scope="row">
-                        Additional Business
+                        Company Registration Number
                       </TableCell>
-                      <TableCell align="right">
-                        Wholesaler, Service Provider
-                      </TableCell>
+                      <TableCell align="right">{comapanyDetails.crn}</TableCell>
                     </TableRow>
 
                     <TableRow
@@ -236,7 +307,9 @@ export default function DealIn(props) {
                       <TableCell component="th" scope="row">
                         Total Number of Employees
                       </TableCell>
-                      <TableCell align="right">50 to 100</TableCell>
+                      <TableCell align="right">
+                        {comapanyDetails.noEmployes}
+                      </TableCell>
                     </TableRow>
 
                     <TableRow
@@ -245,7 +318,20 @@ export default function DealIn(props) {
                       <TableCell component="th" scope="row">
                         Establishment Year
                       </TableCell>
-                      <TableCell align="right">{props.EYear}</TableCell>
+                      <TableCell align="right">
+                        {comapanyDetails.yearEstablishment}
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        Company GST Number
+                      </TableCell>
+                      <TableCell align="right">
+                        {comapanyDetails.gstNumber}
+                      </TableCell>
                     </TableRow>
 
                     <TableRow
@@ -254,7 +340,9 @@ export default function DealIn(props) {
                       <TableCell component="th" scope="row">
                         Legal Status
                       </TableCell>
-                      <TableCell align="right">Individual-Proprietor</TableCell>
+                      <TableCell align="right">
+                        {comapanyDetails.legalStatus}
+                      </TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>

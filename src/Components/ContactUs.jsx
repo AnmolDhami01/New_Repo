@@ -80,18 +80,21 @@ export default function ContactUs2() {
     } else {
       setErrors(null);
 
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        }),
-      });
+      const response = await fetch(
+        "https://pharmawebb.herokuapp.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+          }),
+        }
+      );
       const json = await response.json();
       console.log(json);
       if (json.success) {
@@ -184,7 +187,6 @@ export default function ContactUs2() {
                               fullWidth
                               id="name"
                               label="Full Name"
-                              autoFocus
                               InputLabelProps={{
                                 shrink: formData ? true : false,
                               }}
@@ -209,7 +211,6 @@ export default function ContactUs2() {
                               name="email"
                               fullWidth
                               label="Email Address"
-                              autoFocus
                               value={formData?.email}
                               InputLabelProps={{
                                 shrink: formData ? true : false,
@@ -235,7 +236,6 @@ export default function ContactUs2() {
                               fullWidth
                               id="phone"
                               label="Phone Number"
-                              autoFocus
                               InputLabelProps={{
                                 shrink: formData ? true : false,
                               }}

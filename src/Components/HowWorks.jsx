@@ -23,12 +23,15 @@ export default function HowWorks() {
           <Grid container>
             <Grid item xs={12} md={12} lg={12}>
               <Typography
-                variant="h5"
+                variant="h4"
                 align="center"
                 color="text.secondary"
                 paragraph
-                style={{ color: "#0c8540" }}
-                fontFamily="Poppins"
+                style={{
+                  color: "#0c8540",
+                  fontFamily: "Poppins",
+                  fontWeight: "800",
+                }}
               >
                 How it Works
               </Typography>

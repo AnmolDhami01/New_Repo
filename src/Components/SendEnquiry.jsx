@@ -46,12 +46,12 @@ export default function SendEnquiry() {
         fullWidth
         variant="contained"
         size="large"
-        sx={{ pt: 1, mt: 5 }}
+        // sx={{ pt: 1, mt: 5 }}
         onClick={handleClickOpen}
         style={{ backgroundColor: "#0c8540", fontFamily: "Poppins" }}
       >
         <Typography
-          // sx={{ color: "white" }}
+          sx={{ fontFamily: "Poppins" }}
           align="center"
           variant="h5"
           component="div"

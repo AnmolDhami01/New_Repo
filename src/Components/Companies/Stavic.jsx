@@ -70,15 +70,8 @@ export default function Stavic() {
           </Box>
         </Box>
         <DealIn
-          companyName={"Welcome To Stavic Lifesciences (P) Ltd."}
-          body={
-            "Stavic Lifesciences is a fast growing pharmaceutical company. The organization has been committed to providing a wide range of quality and affordable pharmaceutical drugs to a large number of healthcare professionals and medical facilities. The company started its journey with the honest promise of providing quality medicines at affordable prices.Stavic Lifesciences quality is a journey, not a goal. It continuously sets higher standards and feels passionate to achieve all that. The motto of Stavic Lifesciences quality policy is the provide WHO approved Product.As a trustworthy and responsible pharmaceutical company, we have made it a point to create a trustworthy brand, where our customers always associate us with innovation, quality, reliability, sustainability and excellent customer service.One of our specializations is to provide quality, reliability, sustainability and excellent Products. Our team of professionals combined with our infrastructure is always ready for it. We offer a wide range of solutions where we have the experience of developing pharmaceutical formulations for our some of the country’s best pharmaceutical companies."
-          }
-          CEO={"Mr Rakesh "}
-          address={
-            "Plot No. 78, 1st Floor Industrial Area, Phase – 2 Panchkula – 134113 Haryana"
-          }
-          EYear={"2017"}
+          CompanyToken={process.env.REACT_APP_NEXBON_TOKEN}
+          companyNumber={3}
         />
       </Container>
     </>

@@ -17,6 +17,15 @@ router.post(
     body("phone", "Phone Number must be atleast 10 characters").isLength({
       min: 10,
     }),
+    body("company", "Company name must be atleast 3 characters").isLength({
+      min: 3,
+    }),
+    body("city", "City name must be atleast 3 characters").isLength({
+      min: 3,
+    }),
+    body("state", "State name must be atleast 3 characters").isLength({
+      min: 3,
+    }),
     body("password", "Password must be atleast 5 characters").isLength({
       min: 5,
     }),
@@ -48,6 +57,9 @@ router.post(
         name: req.body.name,
         password: secPass,
         email: req.body.email,
+        company: req.body.company,
+        city: req.body.city,
+        state: req.body.state,
         phone: req.body.phone,
       });
       const data = {
@@ -128,4 +140,41 @@ router.post("/getuser", fetchuser, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+router.put("/updatuser/:id", fetchuser, async (req, res) => {
+  const { name, email, phone } = req.body;
+  try {
+    // Create a newNote object
+    const newUser = {};
+    if (name) {
+      newUser.name = name;
+    }
+    if (email) {
+      newUser.email = email;
+    }
+    if (phone) {
+      newUser.phone = phone;
+    }
+
+    // Find the note to be updated and update it
+    let user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send("Not Found");
+    }
+
+    if (user.toString() !== req.user.id) {
+      return res.status(401).send("Not Allowed");
+    }
+    user = await User.findByIdAndUpdate(
+      req.params.id,
+      { $set: newUser },
+      { new: true }
+    );
+    res.json({ user });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 module.exports = router;

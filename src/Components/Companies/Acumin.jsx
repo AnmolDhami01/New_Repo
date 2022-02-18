@@ -71,15 +71,8 @@ export default function Acumin() {
         </Box>
 
         <DealIn
-          companyName={"Welcome To Acumin Labs (P) Ltd."}
-          body={
-            "Accuminn Labs is a leading marketing and pharma manufacturing company providing a wide range of Alopathic, Herbal & Nutraceutical medicines. Since 2008, we are working with a well-defined goal to serve the patients who need high-quality medicines. The products we marketed and manufacture include Tablets, Capsules, Injections, Ayurvedic Medicines, Syrups, Softgel, Creams, Powders and Dental Solutions.We are the best marketing and manufacturing company of the herbal medicines to provide a great health care to our customers without any side effects. Accuminn Labs is established with a single aim of providing high-quality medicines to the customers. Because of our crystal clear business policies we have a wide range of satisfied customers that include distributors, doctors, clinics, marketers etc.Sincerity and honesty are our core values and a good health for all is our prime goal."
-          }
-          CEO={"Mr Rakesh "}
-          address={
-            "SCF-321, First Floor, Motor Market, Manimajra, 160101, Chandigarh, India"
-          }
-          EYear={"2016"}
+          CompanyToken={process.env.REACT_APP_NEXBON_TOKEN}
+          companyNumber={2}
         />
       </Container>
     </>

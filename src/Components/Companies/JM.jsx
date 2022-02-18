@@ -70,15 +70,8 @@ export default function JM() {
           </Box>
         </Box>
         <DealIn
-          companyName={"Welcome To JM Healthcare (P) Ltd."}
-          body={
-            "We,JM Healthcare from 1997 are famous amongst the esteemed wholesaler and trader of an exceptional quality assortment of Pharmaceutical Products. Offered products range consists of Pharmaceutical Tablets, Pharma Tablets, Nano Shot Oral Solution, Pharmaceutical Sachet, Paracetamol Suspension, Protein Powder, Pharmaceuticals Syrup, Dry Syrup, Pharmaceutical Capsules, Softgel Capsules, Pharma Drops etc. The offered range is prepared using high-quality ingredients at our vendors end under the direction of pharma experts. Also, we offered these products to clients in various packaging options. As per quality principles, we are committed to the core values of ethical practices, and responsibility towards patrons. We have established a strong relationship with vendors. They have installed all the automatic machine for faster production with the set quality norms. In addition to this, with the support of our professionals and vendors base, we have a strong relationship with clients in a short span of time.Managed under the headship of our mentor “Rakesh Vijay Kumar”, our firm has covered the foremost share in the market. Owing to his organizational skills, we are famous in this domain"
-          }
-          CEO={"Mr Rakesh Vijay Kumar"}
-          address={
-            "SCF 434, 1st Floor, Motor Market, Sector 5 Manimajra, Chandigarh - 160101, India"
-          }
-          EYear={"2011"}
+          CompanyToken={process.env.REACT_APP_NEXBON_TOKEN}
+          companyNumber={1}
         />
       </Container>
     </>

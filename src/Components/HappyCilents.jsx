@@ -21,7 +21,7 @@ export default function HappyCilents() {
           Happy Cilents
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={3} lg={3}>
+          <Grid item xs={12} md={3} sm={6} lg={3}>
             <HappyCilentsCards
               heading={"100+"}
               body={"Our Customer"}
@@ -29,7 +29,7 @@ export default function HappyCilents() {
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />
           </Grid>
-          <Grid item xs={12} md={3} lg={3}>
+          <Grid item xs={12} md={3} sm={6} lg={3}>
             <HappyCilentsCards
               heading={"3000+ "}
               body={"No.of Products"}
@@ -37,7 +37,7 @@ export default function HappyCilents() {
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />
           </Grid>
-          <Grid item xs={12} md={3} lg={3}>
+          <Grid item xs={12} md={3} sm={6} lg={3}>
             <HappyCilentsCards
               heading={"60+ "}
               body={"Companies"}
@@ -45,7 +45,7 @@ export default function HappyCilents() {
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />
           </Grid>
-          <Grid item xs={12} md={3} lg={3}>
+          <Grid item xs={12} md={3} sm={6} lg={3}>
             <HappyCilentsCards
               heading={"20+ "}
               body={"Awards"}

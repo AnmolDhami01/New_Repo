@@ -42,7 +42,7 @@
   /* margin: 0;
   padding: 0;
   box-sizing: border-box; */
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "sans-serif";
 }
 .navDiv {
   background: #0c8540;
@@ -102,7 +102,7 @@ nav .search_box input {
   padding: 0 10px;
   font-size: 20px;
   width: 475px;
-  border-radius: 5px;
+  border-radius: 15px 0 0 15px;
   font-family: poppins;
 }
 nav .search_box span {
@@ -114,12 +114,12 @@ nav .search_box span {
   position: relative;
   cursor: pointer;
   z-index: 1;
-  border-radius: 5px;
+  border-radius: 0 15px 15px 0;
 }
 nav .search_box span:hover {
   color: black;
 }
-nav .search_box span::after {
+/* nav .search_box span::after {
   height: 100%;
   width: 0%;
   content: "";
@@ -129,7 +129,7 @@ nav .search_box span::after {
   right: 0;
   z-index: -1;
   transition: 0.3s;
-}
+} */
 nav .search_box span:hover::after {
   width: 100%;
 }

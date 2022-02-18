@@ -11,30 +11,30 @@ export default function Product() {
     <>
       <Container maxWidth="xl">
         <Grid container spacing={2}>
-          <Grid item xs={12} md={3} lg={3} sm={12}>
+          <Grid item xs={12} md={6} lg={3} sm={6}>
             <ProductCard
               heading={"Ayurvedic  Products"}
               image={AyurvedicIcon}
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />
           </Grid>
-          <Grid item xs={12} md={3} lg={3} sm={12}>
+          <Grid item xs={12} md={6} lg={3} sm={6}>
             <ProductCard
-              heading={"Drugs & Pharma"}
+              heading={"Drugs & Pharma Products"}
               image={MedicineIcon}
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />
           </Grid>
-          <Grid item xs={12} md={3} lg={3} sm={12}>
+          <Grid item xs={12} md={6} lg={3} sm={6}>
             <ProductCard
-              heading={"Cosmetic Product"}
+              heading={"Cosmetic Products"}
               image={TherapyIcon}
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />
           </Grid>
-          <Grid item xs={12} md={3} lg={3} sm={12}>
+          <Grid item xs={12} md={6} lg={3} sm={6}>
             <ProductCard
-              heading={"Derma Products"}
+              heading={"Homeopathic Products"}
               image={FactoryIcon}
               sx={{ backgroundColor: "#0c8540", color: "white" }}
             />

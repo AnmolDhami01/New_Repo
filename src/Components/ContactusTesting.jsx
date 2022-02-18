@@ -6,7 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import PersonIcon from "@mui/icons-material/Person";
+import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import { Box, Grid, TextField } from "@mui/material";
 import {
   Avatar,
@@ -25,7 +25,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ContactusTesting({ history, match }) {
+export default function ContactusTesting({ history, match, setProgress }) {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState(null);
@@ -59,23 +59,30 @@ export default function ContactusTesting({ history, match }) {
     } else {
       setErrors(null);
 
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        }),
-      });
+      setProgress(10);
+      const response = await fetch(
+        "https://pharmawebb.herokuapp.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+          }),
+        }
+      );
+      setProgress(30);
       const json = await response.json();
       console.log(json);
+      setProgress(70);
       if (json.success) {
         // Save the auth token and redirect
         await setOpen(false);
+        setProgress(100);
         Swal.fire({
           title: "Message Sent!!!",
           text: "Message Sended Succesfully!",
@@ -85,6 +92,7 @@ export default function ContactusTesting({ history, match }) {
         });
       } else if (response.status === 400) {
         await setOpen(false);
+        setProgress(100);
         await Swal.fire({
           title: "Opps!!!",
           text: "Your Query has been already Submitted. We will try to contact you as soon as possible",
@@ -95,6 +103,7 @@ export default function ContactusTesting({ history, match }) {
         });
       } else {
         await setOpen(false);
+        setProgress(100);
         await Swal.fire({
           title: "Opps!!!",
           text: "Something went Wrong. Try Again Later",
@@ -112,9 +121,9 @@ export default function ContactusTesting({ history, match }) {
   return (
     <div>
       <Button
-        sx={{ color: "white", borderColor: "white" }}
+        sx={{ color: "white", borderColor: "white", fontFamily: "Poppins" }}
         onClick={handleClickOpen}
-        startIcon={<PersonIcon />}
+        startIcon={<ForwardToInboxIcon />}
         variant="outlined"
       >
         Post Requirment
@@ -263,9 +272,14 @@ export default function ContactusTesting({ history, match }) {
                           type="submit"
                           fullWidth
                           variant="contained"
-                          sx={{ mt: 3, mb: 2, backgroundColor: "#0c8540" }}
+                          sx={{
+                            mt: 3,
+                            mb: 2,
+                            backgroundColor: "#0c8540",
+                            fontFamily: "Poppins",
+                          }}
                         >
-                          {mode === "CREATE" ? "SIGN UP" : "UPDATE"}
+                          SEND MESSAGE
                         </Button>
                       </Grid>
                     </Grid>
